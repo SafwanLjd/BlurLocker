@@ -14,10 +14,13 @@ Because [i3lock-color](https://github.com/Raymo111/i3lock-color) looks ugly out 
 * install [i3lock-color](https://github.com/Raymo111/i3lock-color) (obviously), and [xgetres](https://github.com/tamirzb/xgetres) (both available in the AUR)
 * clone this repository:
 ```bash
-$ git clone https://github.com/SafwanLjd/BlurLocker.git
+git clone https://github.com/SafwanLjd/BlurLocker.git
 ```
-* copy the executable file to whereever you keep your executables
+* copy the executable file to whereever you keep your executables (`/usr/local/bin`, `~/.local/bin`, etc.)
 
 
 ### AUR
-**SOON**
+This script is available in the Arch User Repository, so if you're using an Arch based distro you can install it with your favorite AUR helper (`paru`, `yay`, etc.)
+```bash
+paru -S blurlocker
+```
