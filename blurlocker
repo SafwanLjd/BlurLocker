@@ -1,0 +1,56 @@
+#!/bin/sh
+
+FONT="monospace"
+DATE_FORMAT="%a, %Y/%m/%d"
+BLUR_SIGMA="5"
+
+# Colors
+BLACK="#000000"
+RED="$(xgetres color1)"
+GREEN="$(xgetres color2)D0"
+BLUE="$(xgetres color4)"
+LIGHT_GREEN="$(xgetres color10)"
+YELLOW="$(xgetres color11)"
+BACKGROUND="$(xgetres background)D0"
+FOREGROUND="$(xgetres foreground)"
+
+
+i3lock \
+--blur=$BLUR_SIGMA \
+--ignore-empty-password \
+--pass-media-keys \
+--pass-screen-keys \
+--pass-volume-keys \
+--pass-power-keys \
+--indicator \
+--composite \
+--nofork \
+--clock \
+--radius=115 \
+--ring-width=14 \
+--time-size=38 \
+--date-size=16 \
+--date-str="$DATE_FORMAT" \
+--verif-font="$FONT" \
+--date-font="$FONT" \
+--time-font="$FONT" \
+--no-modkey-text \
+--noinput-text="" \
+--verif-text="" \
+--wrong-text="" \
+--lock-text="" \
+--lockfailed-text="" \
+--line-uses-ring \
+--color "$BLACK" \
+--time-color="$FOREGROUND" \
+--date-color="$FOREGROUND" \
+--insidewrong-color="$BACKGROUND" \
+--insidever-color="$BACKGROUND" \
+--inside-color="$BACKGROUND" \
+--ringwrong-color="$RED" \
+--ringver-color="$BLUE" \
+--ring-color="$GREEN" \
+--separator-color="$FOREGROUND" \
+--keyhl-color="$LIGHT_GREEN" \
+--bshl-color="$YELLOW"
+
