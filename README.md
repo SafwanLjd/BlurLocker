@@ -24,3 +24,24 @@ This script is available in the Arch User Repository, so if you're using an Arch
 ```bash
 paru -S blurlocker
 ```
+
+## Usage
+You can just run `blurlocker`, and it will just work!
+
+However, there's an option you might want to use, the `-n` option:
+```
+blurlocker -n
+```
+This will allow you to blur the locker window using a compositor that supports blur like [picom-ibhagwan](https://github.com/ibhagwan/picom), this can be useful as it gets rid of the slight delay between running the script and locking the screen.
+
+### [picom-ibhagwan](https://github.com/ibhagwan/picom) Example Configuration File
+```
+blur-method             = "kawase";
+blur-kern               = "3x3box";
+blur-strength           = 5;
+
+# this line disables blur on all other programs that aren't the lock screen
+blur-background-exclude = [ "class_g != 'i3lock'" ];
+```
+
+You can add or change options as you see fit

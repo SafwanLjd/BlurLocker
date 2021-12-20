@@ -1,29 +1,33 @@
 #!/bin/sh
 
-FONT="monospace"
-DATE_FORMAT="%a, %Y/%m/%d"
-BLUR_SIGMA="5"
-
-# Colors
-BLACK="#000000"
+BG="#00000000"
 RED="$(xgetres color1)"
 GREEN="$(xgetres color2)D0"
 BLUE="$(xgetres color4)"
 LIGHT_GREEN="$(xgetres color10)"
 YELLOW="$(xgetres color11)"
-BACKGROUND="$(xgetres background)D0"
-FOREGROUND="$(xgetres foreground)"
+CIRCLE_BG="$(xgetres background)D0"
+CIRCLE_FG="$(xgetres foreground)"
+DATE_FORMAT="%a, %Y/%m/%d"
+FONT="monospace"
+
+
+[ "$1" = "-n" ] || BLUR="--blur=3"
+
+[ "$1" = "-h" ] && printf \
+"Usage:
+	-n\t\t\"no blur\", allows you to blur the background using a compositor like picom
+	-h\t\tshow this help message\n" && exit 0
 
 
 i3lock \
---blur=$BLUR_SIGMA \
+--color=$BG \
 --ignore-empty-password \
 --pass-media-keys \
 --pass-screen-keys \
 --pass-volume-keys \
 --pass-power-keys \
 --indicator \
---composite \
 --nofork \
 --clock \
 --radius=115 \
@@ -41,16 +45,15 @@ i3lock \
 --lock-text="" \
 --lockfailed-text="" \
 --line-uses-ring \
---color "$BLACK" \
---time-color="$FOREGROUND" \
---date-color="$FOREGROUND" \
---insidewrong-color="$BACKGROUND" \
---insidever-color="$BACKGROUND" \
---inside-color="$BACKGROUND" \
+--time-color="$CIRCLE_FG" \
+--date-color="$CIRCLE_FG" \
+--insidewrong-color="$CIRCLE_BG" \
+--insidever-color="$CIRCLE_BG" \
+--inside-color="$CIRCLE_BG" \
 --ringwrong-color="$RED" \
 --ringver-color="$BLUE" \
 --ring-color="$GREEN" \
---separator-color="$FOREGROUND" \
+--separator-color="$CIRCLE_FG" \
 --keyhl-color="$LIGHT_GREEN" \
---bshl-color="$YELLOW"
-
+--bshl-color="$YELLOW" \
+$BLUR
