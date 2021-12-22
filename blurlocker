@@ -8,7 +8,7 @@ LIGHT_GREEN="$(xgetres color10)"
 YELLOW="$(xgetres color11)"
 CIRCLE_BG="$(xgetres background)D0"
 CIRCLE_FG="$(xgetres foreground)"
-DATE_FORMAT="%a, %Y/%m/%d"
+DATE_FORMAT="%a, %b %d"
 FONT="monospace"
 
 
@@ -31,20 +31,23 @@ i3lock \
 --nofork \
 --clock \
 --radius=115 \
---ring-width=14 \
+--ring-width=16 \
+--layout-size=14 \
 --time-size=38 \
---date-size=16 \
+--date-size=18 \
 --date-str="$DATE_FORMAT" \
---verif-font="$FONT" \
---date-font="$FONT" \
+--layout-font="$FONT" \
 --time-font="$FONT" \
+--date-font="$FONT" \
 --no-modkey-text \
 --noinput-text="" \
 --verif-text="" \
 --wrong-text="" \
 --lock-text="" \
 --lockfailed-text="" \
+--keylayout=1 \
 --line-uses-ring \
+--layout-color="$CIRCLE_FG" \
 --time-color="$CIRCLE_FG" \
 --date-color="$CIRCLE_FG" \
 --insidewrong-color="$CIRCLE_BG" \
