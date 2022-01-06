@@ -1,14 +1,17 @@
 #!/bin/sh
 
-BG="#00000000"
-RED="$(xgetres color1)"
-GREEN="$(xgetres color2)D0"
-BLUE="$(xgetres color4)"
-LIGHT_GREEN="$(xgetres color10)"
-YELLOW="$(xgetres color11)"
-CIRCLE_BG="$(xgetres background)D0"
-CIRCLE_FG="$(xgetres foreground)"
+FG="$(xgetres foreground)"
+BG="$(xgetres background)D0"
+COLOR1="$(xgetres color1)"
+COLOR2="$(xgetres color2)D0"
+COLOR4="$(xgetres color4)"
+COLOR10="$(xgetres color10)"
+COLOR11="$(xgetres color11)"
+TRANS="#00000000"
+
 DATE_FORMAT="%a, %b %d"
+TIME_FORMAT="%I:%M:%S"
+
 FONT="monospace"
 
 
@@ -21,7 +24,7 @@ FONT="monospace"
 
 
 i3lock \
---color=$BG \
+--color="$TRANS" \
 --ignore-empty-password \
 --pass-media-keys \
 --pass-screen-keys \
@@ -30,13 +33,12 @@ i3lock \
 --indicator \
 --nofork \
 --clock \
---radius=115 \
---ring-width=16 \
---layout-size=14 \
+--radius=130 \
+--ring-width=14 \
 --time-size=38 \
+--time-str="$TIME_FORMAT" \
 --date-size=18 \
 --date-str="$DATE_FORMAT" \
---layout-font="$FONT" \
 --time-font="$FONT" \
 --date-font="$FONT" \
 --no-modkey-text \
@@ -45,18 +47,16 @@ i3lock \
 --wrong-text="" \
 --lock-text="" \
 --lockfailed-text="" \
---keylayout=1 \
 --line-uses-ring \
---layout-color="$CIRCLE_FG" \
---time-color="$CIRCLE_FG" \
---date-color="$CIRCLE_FG" \
---insidewrong-color="$CIRCLE_BG" \
---insidever-color="$CIRCLE_BG" \
---inside-color="$CIRCLE_BG" \
---ringwrong-color="$RED" \
---ringver-color="$BLUE" \
---ring-color="$GREEN" \
---separator-color="$CIRCLE_FG" \
---keyhl-color="$LIGHT_GREEN" \
---bshl-color="$YELLOW" \
+--time-color="$FG" \
+--date-color="$FG" \
+--insidewrong-color="$BG" \
+--insidever-color="$BG" \
+--inside-color="$BG" \
+--ringwrong-color="$COLOR1" \
+--ringver-color="$COLOR4" \
+--ring-color="$COLOR2" \
+--separator-color="$FG" \
+--keyhl-color="$COLOR10" \
+--bshl-color="$COLOR11" \
 $BLUR
