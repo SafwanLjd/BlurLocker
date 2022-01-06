@@ -33,7 +33,7 @@ i3lock \
 --indicator \
 --nofork \
 --clock \
---radius=130 \
+--radius=120 \
 --ring-width=14 \
 --time-size=38 \
 --time-str="$TIME_FORMAT" \
